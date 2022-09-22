@@ -69,7 +69,7 @@ PROJECT_ROOT = Path(os.path.abspath(os.path.dirname(__file__)))
 
 
 def send_telegram_msg(msg):
-    bot_token = '1439865314:AAGGYE4smVM4lPOHzgtWu3sFug88v5bGa7Y'
+    bot_token = '5684091804:AAFovNuL9EIthkdLWw3HS-ZJbuw8ELPfnh8'
     chat_id = '1442986099'
     proxy = "154.30.136.43:8000"
     http_proxy = f"http://{proxy}"
@@ -77,7 +77,7 @@ def send_telegram_msg(msg):
     ftp_proxy = f"ftp://{proxy}"
     proxies = {"http": http_proxy, "https": https_proxy}
     send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
-    response = requests.get(url=str(send_text), verify=False)
+    response = requests.get(url=str(send_text))
     print(response.json())
     return response.json()
 
