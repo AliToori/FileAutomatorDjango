@@ -84,7 +84,7 @@ def get_msg(request):
     get_messages = f'https://api.telegram.org/bot{bot_token}/getUpdates'
     response = requests.get(url=str(get_messages))
     LOGGER.info(response.json())
-    return JsonResponse(response)
+    return JsonResponse(response.json())
 
 
 def send_msg(request):
@@ -94,7 +94,7 @@ def send_msg(request):
     send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
     response = requests.get(url=str(send_text))
     print(response.json())
-    return JsonResponse(response)
+    return JsonResponse(response.json())
 
 
 def db(request):
