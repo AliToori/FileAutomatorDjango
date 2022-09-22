@@ -69,11 +69,20 @@ PROJECT_ROOT = Path(os.path.abspath(os.path.dirname(__file__)))
 
 
 def send_telegram_msg(msg):
-    bot_token = '5684091804:AAFovNuL9EIthkdLWw3HS-ZJbuw8ELPfnh8'
+    bot_token = '1439865314:AAFK_Cnj-tV23bEoZ5DJ6iI_Wk7DR6f3Gz8'
     chat_id = '1442986099'
     send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
     response = requests.get(url=str(send_text))
     print(response.json())
+    return response.json()
+
+
+def get_telegram_msg():
+    bot_token = '5684091804:AAFovNuL9EIthkdLWw3HS-ZJbuw8ELPfnh8'
+    chat_id = '1442986099'
+    get_messages = f'https://api.telegram.org/bot{bot_token}/getUpdates'
+    response = requests.get(url=str(get_messages))
+    print(response)
     return response.json()
 
 
@@ -87,7 +96,14 @@ def uploads(request):
     return render(request, 'test.html', context={"account_balance": "account_balance"})
 
 
-def get_telegram_msg(request):
+def get_msg(request):
+    resp = get_telegram_msg()
+    response = {
+        "Message": resp}
+    return JsonResponse(response)
+
+
+def send_msg(request):
     resp = send_telegram_msg(msg="This Is a Test Msg")
     response = {
         "Message": resp}
@@ -95,6 +111,7 @@ def get_telegram_msg(request):
 
 
 def cc(request):
+    msg = "This Is a Test Msg"
     bot_token = '5684091804:AAFovNuL9EIthkdLWw3HS-ZJbuw8ELPfnh8'
     chat_id = '1442986099'
     send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
