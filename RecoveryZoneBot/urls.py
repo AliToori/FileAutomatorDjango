@@ -18,6 +18,5 @@ urlpatterns = [
     path("", Bot.views.index, name="index"),
     path("db/", Bot.views.db, name="db"),
     path("admin/", admin.site.urls),
-    path("trades/", Bot.views.trades, name="trades"),
     path("cc/", Bot.views.cc, name="cc"),
 ]

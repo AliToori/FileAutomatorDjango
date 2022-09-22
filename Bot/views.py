@@ -89,7 +89,7 @@ def index(request):
 
 @csrf_exempt
 def uploads(request):
-    return render(request, 'uploads.html', context={"account_balance": "account_balance"})
+    return render(request, 'test.html', context={"account_balance": "account_balance"})
 
 
 def get_telegram_msg(request):
