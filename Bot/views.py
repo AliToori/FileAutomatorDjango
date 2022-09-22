@@ -86,7 +86,7 @@ def get_msg(request):
     LOGGER.info(response.json())
     phone_number = response.json()["result"][0]["message"]["text"]
     print(phone_number)
-    return JsonResponse(phone_number.json())
+    return JsonResponse(json.loads(phone_number))
 
 
 def send_msg(request):
