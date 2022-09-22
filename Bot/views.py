@@ -16,45 +16,45 @@ from .models import Greeting
 
 # load_dotenv()
 
-# logging.config.dictConfig({
-#     "version": 1,
-#     "disable_existing_loggers": False,
-#     'formatters': {
-#         'colored': {
-#             '()': 'colorlog.ColoredFormatter',  # colored output
-#             # --> %(log_color)s is very important, that's what colors the line
-#             'format': '[%(asctime)s,%(lineno)s] %(log_color)s[%(message)s]',
-#             'log_colors': {
-#                 'DEBUG': 'green',
-#                 'INFO': 'cyan',
-#                 'WARNING': 'yellow',
-#                 'ERROR': 'red',
-#                 'CRITICAL': 'bold_red',
-#             },
-#         },
-#         'simple': {
-#             'format': '[%(asctime)s,%(lineno)s] [%(message)s]',
-#         },
-#     },
-#     "handlers": {
-#         "console": {
-#             "class": "colorlog.StreamHandler",
-#             "level": "INFO",
-#             "formatter": "colored",
-#             "stream": "ext://sys.stdout"
-#         },
-#         "file": {
-#             "class": "logging.handlers.RotatingFileHandler",
-#             "level": "INFO",
-#             "formatter": "simple",
-#             "filename": 'app-log.log'
-#         },
-#     },
-#     "root": {"level": "INFO",
-#              "handlers": ["console", "file"]
-#              }
-# })
-# LOGGER = logging.getLogger()
+logging.config.dictConfig({
+    "version": 1,
+    "disable_existing_loggers": False,
+    'formatters': {
+        'colored': {
+            '()': 'colorlog.ColoredFormatter',  # colored output
+            # --> %(log_color)s is very important, that's what colors the line
+            'format': '[%(asctime)s,%(lineno)s] %(log_color)s[%(message)s]',
+            'log_colors': {
+                'DEBUG': 'green',
+                'INFO': 'cyan',
+                'WARNING': 'yellow',
+                'ERROR': 'red',
+                'CRITICAL': 'bold_red',
+            },
+        },
+        'simple': {
+            'format': '[%(asctime)s,%(lineno)s] [%(message)s]',
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "colorlog.StreamHandler",
+            "level": "INFO",
+            "formatter": "colored",
+            "stream": "ext://sys.stdout"
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "INFO",
+            "formatter": "simple",
+            "filename": 'app-log.log'
+        },
+    },
+    "root": {"level": "INFO",
+             "handlers": ["console", "file"]
+             }
+})
+LOGGER = logging.getLogger()
 
 PROJECT_ROOT = Path(os.path.abspath(os.path.dirname(__file__)))
 # api_key = os.getenv("BYBIT_API_KEY")
@@ -68,24 +68,6 @@ PROJECT_ROOT = Path(os.path.abspath(os.path.dirname(__file__)))
 # ws = usdt_perpetual.WebSocket(test=True, api_key=api_key, api_secret=api_secret)
 
 
-def send_telegram_msg(msg):
-    bot_token = '1439865314:AAFK_Cnj-tV23bEoZ5DJ6iI_Wk7DR6f3Gz8'
-    chat_id = '1442986099'
-    send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
-    response = requests.get(url=str(send_text))
-    print(response.json())
-    return response.json()
-
-
-def get_telegram_msg():
-    bot_token = '5684091804:AAFovNuL9EIthkdLWw3HS-ZJbuw8ELPfnh8'
-    chat_id = '1442986099'
-    get_messages = f'https://api.telegram.org/bot{bot_token}/getUpdates'
-    response = requests.get(url=str(get_messages))
-    print(response)
-    return response.json()
-
-
 # Create your views here.
 def index(request):
     return render(request, "index.html", context={"account_balance": "account_balance"})
@@ -97,23 +79,18 @@ def uploads(request):
 
 
 def get_msg(request):
-    resp = get_telegram_msg()
-    response = {
-        "Message": resp}
+    bot_token = '5662643896:AAH8iy7x92iaFWvV6vFev1Lin0SQNnKHuFc'
+    chat_id = '5685548307'
+    get_messages = f'https://api.telegram.org/bot{bot_token}/getUpdates'
+    response = requests.get(url=str(get_messages))
+    LOGGER.info(response.json())
     return JsonResponse(response)
 
 
 def send_msg(request):
-    resp = send_telegram_msg(msg="This Is a Test Msg")
-    response = {
-        "Message": resp}
-    return JsonResponse(response)
-
-
-def cc(request):
     msg = "This Is a Test Msg"
-    bot_token = '5684091804:AAFovNuL9EIthkdLWw3HS-ZJbuw8ELPfnh8'
-    chat_id = '1442986099'
+    bot_token = '5662643896:AAH8iy7x92iaFWvV6vFev1Lin0SQNnKHuFc'
+    chat_id = '5685548307'
     send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
     response = requests.get(url=str(send_text))
     print(response.json())
