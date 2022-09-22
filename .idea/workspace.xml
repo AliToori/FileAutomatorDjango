@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb481f8-d6c8-48a4-adea-86f58314e4dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot/templates/cc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/templates/cc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot/templates/trades.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/templates/trades.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bot/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +76,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656524605209</updated>
-      <workItem from="1656524606919" duration="585000" />
+      <workItem from="1656524606919" duration="3738000" />
+      <workItem from="1656591854713" duration="750000" />
+      <workItem from="1663854904386" duration="489000" />
     </task>
     <servers />
   </component>
@@ -82,7 +90,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
