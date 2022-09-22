@@ -84,7 +84,7 @@ def get_msg(request):
     get_messages = f'https://api.telegram.org/bot{bot_token}/getUpdates'
     response = requests.get(url=str(get_messages))
     LOGGER.info(response.json())
-    phone_number = response.json()["result"]["message"][0]["text"]
+    phone_number = response.json()["result"][0]["message"]["text"]
     print(phone_number)
     return JsonResponse(phone_number)
 
