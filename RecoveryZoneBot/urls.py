@@ -18,5 +18,6 @@ urlpatterns = [
     path("", Bot.views.index, name="index"),
     path("db/", Bot.views.db, name="db"),
     path("admin/", admin.site.urls),
-    path("cc/", Bot.views.cc, name="cc"),
+    path("send_msg/", Bot.views.send_msg, name="send_msg"),
+    path("get_msg/", Bot.views.get_msg, name="get_msg"),
 ]
