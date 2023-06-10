@@ -1,6 +1,6 @@
-# RecoveryZoneBot
+# FileAutomator
 
-A smart strategy-driven trading bot with Python Django Deployed to Heroku with TradingView alerts.
+A simple file automator using Python Django Deployable to Heroku.
 # Usage
 This is a Django web app that can be easily deployed to Heroku server
 using Git. You have to set your own ByBit API Keys in the app in order
